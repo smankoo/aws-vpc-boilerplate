@@ -5,6 +5,12 @@ terraform {
       version = "~> 3.0"
     }
   }
+  
+  backend "s3" {
+    bucket = "smankoo-terraform-2378126"
+    key    = "tfstate"
+    region = "us-west-2"
+  }
 }
 
 # Configure the AWS Provider

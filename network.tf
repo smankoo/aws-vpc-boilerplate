@@ -84,7 +84,6 @@ resource "aws_nat_gateway" "ngw2" {
     Name = "ngw2"
   }
 
-  depends_on = [aws_internet_gateway.igw]
 }
 
 ## Routes ###
@@ -107,7 +106,7 @@ resource "aws_route_table" "private1" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.ngw1.id
+    nat_gateway_id = aws_nat_gateway.ngw1.id
   }
 
   tags = {
@@ -120,7 +119,7 @@ resource "aws_route_table" "private2" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.ngw2.id
+    nat_gateway_id = aws_nat_gateway.ngw2.id
   }
 
   tags = {

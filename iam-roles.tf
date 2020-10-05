@@ -91,7 +91,7 @@ resource "aws_iam_role_policy_attachment" "websource_read-attach" {
   policy_arn = aws_iam_policy.websource_read.arn
 }
 
-resource "aws_iam_instance_profile" "websource_read_profile" {
-  name  = "websource_read_profile"
+resource "aws_iam_instance_profile" "websource_read" {
+  name  = "websource_read"
   role = aws_iam_role.websource_read.name
 }
